@@ -1,0 +1,74 @@
+package Stack;
+import java.util.*;
+
+public class Stack_Array {
+    int x;
+    int array[]; 
+    int top; 
+
+    Stack_Array(int x) { 
+        this.x = x;
+        this.array = new int[x];
+        this.top = -1; 
+    }
+
+    public boolean isEmpty() {
+        return (top == -1);
+    }
+
+    public boolean isFull() {
+        return (x - 1 == top);
+    }
+
+    // Push
+    public void push(int pushed) {
+        if (!isFull()) {
+            top++;
+            array[top] = pushed;
+            System.out.println("Pushed element:" + pushed);
+        } else {
+            System.out.println("Stack is full !"); 
+        }
+    }
+
+    public int pop() {
+        if (!isEmpty()) {
+            int popped = top;
+            top--;
+            System.out.println("Popped element :" + array[popped]);
+            return array[popped];
+
+        } else {
+            System.out.println("Stack is empty!");
+            return -1;
+        }
+    }
+
+    public int peek() {
+        if (!this.isEmpty())
+            return array[top];
+        else {
+            System.out.println("Stack is Empty");
+            return -1;
+        }
+    }
+
+    public static void main(String[] args) {
+    	// Create a new stack
+        Stack_Array Stack = new Stack_Array(50); 
+        Stack.pop();
+
+        Stack.push(67);
+        Stack.push(9);
+        Stack.push(78);
+        Stack.push(33);
+        Stack.push(19);
+
+
+
+        Stack.pop();
+        Stack.pop();
+        Stack.pop();
+
+    }
+}
